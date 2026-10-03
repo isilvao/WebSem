@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cycling Ontology</title>
+<meta name="description" content="Cycling ontology (OWL, RDF/XML) by Ivan Daniel Silva Oyola - EURECOM Semantic Web, Fall 2026">
+<link rel="alternate" type="application/rdf+xml" href="SilvaOyola-cycling.owl">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --line: #d1d9e0;
+    --code-bg: #f6f8fa; --accent: #0969da; --btn-bg: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --line: #30363d;
+      --code-bg: #161b22; --accent: #4493f8; --btn-bg: #21262d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { margin: 0 0 4px; font-size: 1.9rem; }
+  .sub { margin: 0; color: var(--muted); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 20px 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .btn {
+    display: inline-block; padding: 6px 14px; border: 1px solid var(--line); border-radius: 6px;
+    background: var(--btn-bg); color: var(--fg); font: inherit; font-size: .9rem;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  pre {
+    margin: 0; border: 1px solid var(--line); border-radius: 8px; overflow: auto;
+    background: var(--code-bg); max-height: 75vh;
+  }
+  pre code, pre code.hljs { display: block; padding: 16px; background: transparent; font-size: 13px; line-height: 1.45; }
+  footer { margin-top: 16px; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>The Cycling Ontology</h1>
+    <p class="sub">Semantic Web and Information Extraction Technologies &ndash; Assignment 1 &middot; EURECOM, Fall 2026</p>
+    <p class="sub">Ivan Daniel Silva Oyola</p>
+    <dl>
+      <dt>Prefix</dt><dd><code>cyc</code></dd>
+      <dt>Namespace</dt><dd><code>https://isilvao.github.io/WebSem/cycling#</code></dd>
+      <dt>Format</dt><dd>OWL 2, RDF/XML serialization</dd>
+      <dt>Imports</dt><dd><code>http://xmlns.com/foaf/0.1/</code></dd>
+    </dl>
+    <div class="actions">
+      <a class="btn" href="SilvaOyola-cycling.owl" download>Download .owl</a>
+      <a class="btn" href="SilvaOyola-cycling.owl">Open raw file</a>
+      <button class="btn" id="copy" type="button">Copy</button>
+    </div>
+  </header>
+  <main>
+<pre><code id="owl" class="language-xml">&lt;?xml version="1.0"?&gt;
+&lt;rdf:RDF xmlns="https://isilvao.github.io/WebSem/cycling#"
+     xml:base="https://isilvao.github.io/WebSem/cycling"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:cyc="https://isilvao.github.io/WebSem/cycling#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"&gt;
+    &lt;owl:Ontology rdf:about="https://isilvao.github.io/WebSem/cycling"&gt;
+        &lt;owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/&gt;
+    &lt;/owl:Ontology&gt;
+    
+
+
+    &lt;!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+
+    
+
+
+    &lt;!-- http://xmlns.com/foaf/0.1/member --&gt;
+
+    &lt;rdf:Description rdf:about="http://xmlns.com/foaf/0.1/member"&gt;
+        &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+    &lt;/rdf:Description&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#belongsTo --&gt;
+
+    &lt;owl:ObjectProperty rdf:about="https://isilvao.github.io/WebSem/cycling#belongsTo"&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#TeamPerson"/&gt;
+        &lt;rdfs:range rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:ObjectProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#composedOf --&gt;
+
+    &lt;owl:ObjectProperty rdf:about="https://isilvao.github.io/WebSem/cycling#composedOf"&gt;
+        &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#isStageOf"/&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+        &lt;rdfs:range rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+    &lt;/owl:ObjectProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#isStageOf --&gt;
+
+    &lt;owl:ObjectProperty rdf:about="https://isilvao.github.io/WebSem/cycling#isStageOf"&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+        &lt;rdfs:range rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+    &lt;/owl:ObjectProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#participatesIn --&gt;
+
+    &lt;owl:ObjectProperty rdf:about="https://isilvao.github.io/WebSem/cycling#participatesIn"&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+        &lt;rdfs:range rdf:resource="https://isilvao.github.io/WebSem/cycling#Race"/&gt;
+    &lt;/owl:ObjectProperty&gt;
+    
+
+
+    &lt;!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+
+    
+
+
+    &lt;!-- http://xmlns.com/foaf/0.1/age --&gt;
+
+    &lt;rdf:Description rdf:about="http://xmlns.com/foaf/0.1/age"&gt;
+        &lt;owl:equivalentProperty rdf:resource="https://isilvao.github.io/WebSem/cycling#age"/&gt;
+    &lt;/rdf:Description&gt;
+    
+
+
+    &lt;!-- http://xmlns.com/foaf/0.1/name --&gt;
+
+    &lt;rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name"&gt;
+        &lt;owl:equivalentProperty rdf:resource="https://isilvao.github.io/WebSem/cycling#name"/&gt;
+    &lt;/rdf:Description&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#age --&gt;
+
+    &lt;owl:DatatypeProperty rdf:about="https://isilvao.github.io/WebSem/cycling#age"&gt;
+        &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+        &lt;rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#name --&gt;
+
+    &lt;owl:DatatypeProperty rdf:about="https://isilvao.github.io/WebSem/cycling#name"&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+        &lt;rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#nationality --&gt;
+
+    &lt;owl:DatatypeProperty rdf:about="https://isilvao.github.io/WebSem/cycling#nationality"&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+        &lt;rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#stageNumber --&gt;
+
+    &lt;owl:DatatypeProperty rdf:about="https://isilvao.github.io/WebSem/cycling#stageNumber"&gt;
+        &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/&gt;
+        &lt;rdfs:domain rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+        &lt;rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    
+
+
+    &lt;!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+
+    
+
+
+    &lt;!-- http://schema.org/Person --&gt;
+
+    &lt;owl:Class rdf:about="http://schema.org/Person"&gt;
+        &lt;owl:equivalentClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- http://xmlns.com/foaf/0.1/Person --&gt;
+
+    &lt;rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"&gt;
+        &lt;owl:equivalentClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    &lt;/rdf:Description&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Climber --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Climber"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#RaceCyclist"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Director --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Director"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#TeamPerson"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Doctor --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Doctor"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#TeamPerson"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#FlatStage --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#FlatStage"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+        &lt;owl:disjointWith rdf:resource="https://isilvao.github.io/WebSem/cycling#MountainStage"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#GoodTeam --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#GoodTeam"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty&gt;
+                            &lt;rdf:Description&gt;
+                                &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+                            &lt;/rdf:Description&gt;
+                        &lt;/owl:onProperty&gt;
+                        &lt;owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"&gt;3&lt;/owl:minQualifiedCardinality&gt;
+                        &lt;owl:onClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Climber"/&gt;
+                    &lt;/owl:Restriction&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty&gt;
+                            &lt;rdf:Description&gt;
+                                &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+                            &lt;/rdf:Description&gt;
+                        &lt;/owl:onProperty&gt;
+                        &lt;owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"&gt;1&lt;/owl:qualifiedCardinality&gt;
+                        &lt;owl:onClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Rider"/&gt;
+                    &lt;/owl:Restriction&gt;
+                &lt;/owl:intersectionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#IndividualTimeTrial --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#IndividualTimeTrial"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#TimeTrial"/&gt;
+        &lt;owl:disjointWith rdf:resource="https://isilvao.github.io/WebSem/cycling#TeamTimeTrial"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#MountainStage --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#MountainStage"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#OneDayRace --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#OneDayRace"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Race"/&gt;
+        &lt;owl:disjointWith rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Person --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Prologue --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Prologue"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty rdf:resource="https://isilvao.github.io/WebSem/cycling#isStageOf"/&gt;
+                        &lt;owl:someValuesFrom rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+                    &lt;/owl:Restriction&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty rdf:resource="https://isilvao.github.io/WebSem/cycling#stageNumber"/&gt;
+                        &lt;owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"&gt;1&lt;/owl:hasValue&gt;
+                    &lt;/owl:Restriction&gt;
+                &lt;/owl:intersectionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Race --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Race"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:unionOf rdf:parseType="Collection"&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#OneDayRace"/&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+                &lt;/owl:unionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#RaceCyclist --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#RaceCyclist"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#TeamPerson"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#RacePerson --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#RacePerson"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Rider --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Rider"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#RaceCyclist"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#SeveralStagesRace --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Race"/&gt;
+        &lt;rdfs:subClassOf&gt;
+            &lt;owl:Restriction&gt;
+                &lt;owl:onProperty rdf:resource="https://isilvao.github.io/WebSem/cycling#composedOf"/&gt;
+                &lt;owl:someValuesFrom rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+            &lt;/owl:Restriction&gt;
+        &lt;/rdfs:subClassOf&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Spectator --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Spectator"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Sprinter --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Sprinter"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#RaceCyclist"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Stage --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Team --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#Team"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty&gt;
+                            &lt;rdf:Description&gt;
+                                &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+                            &lt;/rdf:Description&gt;
+                        &lt;/owl:onProperty&gt;
+                        &lt;owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"&gt;1&lt;/owl:qualifiedCardinality&gt;
+                        &lt;owl:onClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Director"/&gt;
+                    &lt;/owl:Restriction&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty&gt;
+                            &lt;rdf:Description&gt;
+                                &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+                            &lt;/rdf:Description&gt;
+                        &lt;/owl:onProperty&gt;
+                        &lt;owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"&gt;1&lt;/owl:qualifiedCardinality&gt;
+                        &lt;owl:onClass rdf:resource="https://isilvao.github.io/WebSem/cycling#Doctor"/&gt;
+                    &lt;/owl:Restriction&gt;
+                    &lt;owl:Restriction&gt;
+                        &lt;owl:onProperty&gt;
+                            &lt;rdf:Description&gt;
+                                &lt;owl:inverseOf rdf:resource="https://isilvao.github.io/WebSem/cycling#belongsTo"/&gt;
+                            &lt;/rdf:Description&gt;
+                        &lt;/owl:onProperty&gt;
+                        &lt;owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"&gt;10&lt;/owl:qualifiedCardinality&gt;
+                        &lt;owl:onClass rdf:resource="https://isilvao.github.io/WebSem/cycling#RaceCyclist"/&gt;
+                    &lt;/owl:Restriction&gt;
+                &lt;/owl:intersectionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+        &lt;rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#TeamPerson --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#TeamPerson"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:unionOf rdf:parseType="Collection"&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#Director"/&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#Doctor"/&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#RaceCyclist"/&gt;
+                &lt;/owl:unionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Person"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#TeamTimeTrial --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#TeamTimeTrial"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#TimeTrial"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#TimeTrial --&gt;
+
+    &lt;owl:Class rdf:about="https://isilvao.github.io/WebSem/cycling#TimeTrial"&gt;
+        &lt;owl:equivalentClass&gt;
+            &lt;owl:Class&gt;
+                &lt;owl:unionOf rdf:parseType="Collection"&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#IndividualTimeTrial"/&gt;
+                    &lt;rdf:Description rdf:about="https://isilvao.github.io/WebSem/cycling#TeamTimeTrial"/&gt;
+                &lt;/owl:unionOf&gt;
+            &lt;/owl:Class&gt;
+        &lt;/owl:equivalentClass&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://isilvao.github.io/WebSem/cycling#Stage"/&gt;
+    &lt;/owl:Class&gt;
+    
+
+
+    &lt;!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Astana --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Astana"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Christopher_Froome --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Christopher_Froome"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Sprinter"/&gt;
+        &lt;belongsTo rdf:resource="https://isilvao.github.io/WebSem/cycling#Sky"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Eddy_Merckx --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Eddy_Merckx"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Rider"/&gt;
+        &lt;nationality&gt;Belgian&lt;/nationality&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Giro_de_Italia --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Giro_de_Italia"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Miguel_Indurain --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Miguel_Indurain"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Climber"/&gt;
+        &lt;participatesIn rdf:resource="https://isilvao.github.io/WebSem/cycling#Tour_de_France"/&gt;
+        &lt;nationality&gt;Spanish&lt;/nationality&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Movistar --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Movistar"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Red_Bull --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Red_Bull"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Rigoberto_Uran --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Rigoberto_Uran"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Sprinter"/&gt;
+        &lt;participatesIn rdf:resource="https://isilvao.github.io/WebSem/cycling#Vuelta_a_España"/&gt;
+        &lt;age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"&gt;39&lt;/age&gt;
+        &lt;name&gt;Rigoberto Uran&lt;/name&gt;
+        &lt;nationality&gt;Colombian&lt;/nationality&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Sky --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Sky"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Tour_de_France --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Tour_de_France"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#US_Postal --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#US_Postal"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#Team"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+    
+
+
+    &lt;!-- https://isilvao.github.io/WebSem/cycling#Vuelta_a_España --&gt;
+
+    &lt;owl:NamedIndividual rdf:about="https://isilvao.github.io/WebSem/cycling#Vuelta_a_España"&gt;
+        &lt;rdf:type rdf:resource="https://isilvao.github.io/WebSem/cycling#SeveralStagesRace"/&gt;
+    &lt;/owl:NamedIndividual&gt;
+&lt;/rdf:RDF&gt;
+
+
+
+&lt;!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi --&gt;</code></pre>
+  </main>
+  <footer>Source file: <code>SilvaOyola-cycling.owl</code></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  (async function () {
+    var code = document.getElementById('owl');
+    // Show the live .owl from the repo when available, so the page stays in sync with the file.
+    try {
+      var r = await fetch('SilvaOyola-cycling.owl', { cache: 'no-cache' });
+      if (r.ok) code.textContent = (await r.text()).replace(/^\n+|\n+$/g, '');
+    } catch (e) { /* keep the embedded copy */ }
+    if (window.hljs) hljs.highlightElement(code);
+  })();
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var btn = this, text = document.getElementById('owl').textContent;
+    navigator.clipboard.writeText(text).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+    });
+  });
+</script>
+</body>
+</html>
